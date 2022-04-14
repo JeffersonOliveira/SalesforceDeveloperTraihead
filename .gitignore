@@ -38,3 +38,5 @@ $RECYCLE.BIN/
 
 # Local environment variables
 .env
+
+.force-app\main\default\lwc\helloWorld copy\CRUD
