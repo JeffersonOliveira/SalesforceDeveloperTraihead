@@ -19,42 +19,15 @@ public with sharing class ControleDeFluxosTrailhead {
     public static void verifyWaterLevel(String waterLevel) {
         // Three status possibilities: 'full', 'half' or 'empty';
 
-        if (waterLevel == 'empty') {
-            System.debug('Fill the tea Kettle, because its '+ waterLevel);
+        if (waterLevel == 'empty' || waterLevel == 'half') {
+            System.debug('Fill the tea Kettle.');
             waterLevel = 'full';   
-        } else if (waterLevel == 'half') {
-            System.debug('Fill the tea kettle. The kettle was '+waterLevel);
-            waterLevel = 'full';
         } else {
             System.debug('The tea kettle already was full');
         }
 
         //Calling the method with apex anonymous.
         //ControleDeFluxosTrailhead.verifyWaterLevel('full');
-    }
-
-    public static void verifyWaterLevelWithSwitchSingleValue(String waterLevel) {
-
-        switch on waterLevel {
-            when  'empty' {
-                System.debug('Fill the tea kettle');
-            }
-            when  'half' {
-                System.debug('Fill the tea kettle');
-            }
-            when  'full' {
-                System.debug('The tea kettle already is full');
-            }
-            when else {
-                System.debug('Error!');
-                
-            }
-        }
-        /*
-        ControleDeFluxosTrailhead.verifyWaterLevelWithSwitchSingleValue('empty');
-        ControleDeFluxosTrailhead.verifyWaterLevelWithSwitchSingleValue('half');
-        ControleDeFluxosTrailhead.verifyWaterLevelWithSwitchSingleValue('full');
-        */
     }
 
     public static void verifyWaterLevelWithSwitchMultipleValues(String waterLevel) {
