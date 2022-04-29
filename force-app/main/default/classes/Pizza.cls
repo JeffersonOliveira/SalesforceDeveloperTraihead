@@ -5,9 +5,9 @@ public abstract with sharing class Pizza {
         this.QuantidadeDeSabores = quantidadeDeSabores;
     }
 
-    public abstract List<String> ingredientes();
+    public abstract List<String> ingredientes(); // Abstract method that will be override by a method in a Child class.
 
-    public void preparaPizza() {
+    public void prepararPizza() {
         for(String ingrediente : ingredientes()) {
             System.debug(ingrediente);
         }

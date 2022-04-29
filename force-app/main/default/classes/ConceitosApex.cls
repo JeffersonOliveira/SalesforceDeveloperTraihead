@@ -38,7 +38,7 @@ public with sharing class ConceitosApex {
     }
 
     public void testandoMetodo() {
-        String pizza = 'Portuguesa';
+        Portuguesa pizza = new Portuguesa();
         fazerPizza(pizza);
         
     }
