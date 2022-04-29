@@ -1,9 +1,21 @@
 <template>
-    <lightning-card  title="Hello">
-        <lightning-button label="New" slot="actions"></lightning-button>
-        <div class="slds-var-p-horizontal_smallmall">
-            <h1>{name}, Foco e dedicação! Ajudar as pessoas e trabalhar sempre em equipe! </h1>
-        </div>
-        <p slot="footer">Card Footer</p>
-    </lightning-card>
+    
+    <div class="card">
+            <div class="slds-m-top_small slds-m-bottom_medium">
+                <h2 class="slds-text-heading_small slds-m-bottom_small"> Clique em um dos botões para obter a Nota Fiscal no formato desejado:</h2> 
+            </div>
+
+            <div class="container">
+                <lightning-button variant="brand" label="Visualizar Danfe PDF" title="Primary action" onclick={handleClick}
+                class="slds-m-left_x-small"></lightning-button>
+                <lightning-button variant="brand" label="Download NF-e XML" title="Primary action" onclick={handleClick}
+                class="slds-m-left_x-small"></lightning-button>
+            </div>
+
+            <div class="slds-m-vertical_medium">
+                <p>O Botão acionado foi: <span class="slds-text-heading_small">{clickedButtonLabel}</span></p>
+            </div>
+    
+    </div>
+
 </template>
