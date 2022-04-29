@@ -27,6 +27,17 @@ public with sharing class ConceitosApex {
         System.debug(JSON.serialize(this));
     }
 
+    public void fazerPizza(Object Pizza) {
+        Boolean isPizza = pizza instanceof Pizza;
+
+        if (!isPizza) {
+            throw new PizzaException('Isso não é uma pizza');
+        } else {
+            ((Pizza)pizza).prepararPizza();
+        }
+    }
+
+
     public void testandoMetodo() {
         try {
             Integer x = 1234 / 1;
@@ -38,6 +49,7 @@ public with sharing class ConceitosApex {
         
     }
 
+    public class PizzaException extends Exception { }
 }
 /*
 ConceitosApex c = new ConceitosApex(); c.testandoMetodo();
