@@ -1,7 +1,7 @@
 public with sharing class ConceitosApex {
     private String conceito = 'Conceito de Apex';
 
-    public transient String Oculto;  // O Transient mantem o valor da propriedade dentro da classe.
+    public transient String Oculto;  // O Transient mantém o valor da propriedade dentro da classe.
     public String Visivel;
 
     public ConceitosApex(String conceito) {
@@ -27,7 +27,7 @@ public with sharing class ConceitosApex {
         System.debug(JSON.serialize(this));
     }
 
-    public void fazerPizza(Object Pizza) {
+    public void fazerPizza(Object pizza) {
         Boolean isPizza = pizza instanceof Pizza;
 
         if (!isPizza) {
@@ -37,15 +37,9 @@ public with sharing class ConceitosApex {
         }
     }
 
-
     public void testandoMetodo() {
-        try {
-            Integer x = 1234 / 1;
-        } catch (System.MathException ex) {
-            System.debug(ex);
-        } finally {
-            System.debug('Cheguei aqui.');
-        }
+        String pizza = 'Portuguesa';
+        fazerPizza(pizza);
         
     }
 
