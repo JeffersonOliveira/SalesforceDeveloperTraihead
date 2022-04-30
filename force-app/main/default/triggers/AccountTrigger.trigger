@@ -4,16 +4,21 @@ Se estiver vazio enviar uma menagem que está vazio e se não tiver 11 digito o 
 */
 trigger AccountTrigger on Account (before insert) {
 
-  List<Account> newAccountList = Trigger.new;
-  
-  for (Account newAccount : newAccountList) {
-      if (newAccount.Phone == null) {
-        newAccount.addError('Por favor informar o telefone.');
-        
-      } else if (newAccount.Phone.length() < 11 ) {
-        newAccount.addError('Por favor informar o telefone com DDD.');
-      }
-
+  if (Trigger.operationType == System.TriggerOperation.BEFORE_INSERT) {
+    
+      AccountTriggerHandler.onBeforeInsert(Trigger.new, Trigger.newMap);
   }
+
 }
 
+
+/*
+1. O Objetivo é tirar a lógica da trigger;
+2. Separar a lógica;
+3. Separar as responsabilidades
+Trigger 
+   -> TriggerHandler
+        onBeforeInsert()
+        onBeforeUpdate()
+            -> Helper   ( )
+*/
