@@ -10,7 +10,7 @@ public class AccountTriggerHelper {
 
     }
 
-    public static void CloneBillingAddToShippingAdd(Account account) {
+    public static void assignBillingAddressToShippingAddress(Account account) {
         account.ShippingStreet = account.BillingStreet;
         account.ShippingCity = account.BillingCity;
         account.ShippingState = account.BillingState;

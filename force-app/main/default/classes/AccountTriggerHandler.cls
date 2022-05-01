@@ -14,8 +14,8 @@ public class AccountTriggerHandler {
             }
 
             // Verify if checkbox is marked to clone Billing to Shipping Address
-            if (newAccount.Match_Billing_Address__c  == True) {
-                AccountTriggerHelper.CloneBillingAddToShippingAdd(newAccount);
+            if (newAccount.Match_Billing_Address__c) {
+                AccountTriggerHelper.assignBillingAddressToShippingAddress(newAccount);
             }
         }
     }
@@ -23,8 +23,8 @@ public class AccountTriggerHandler {
     public static void onBeforeUpdate(List<Account> newAccountList, Map<Id,Account> oldAccountMap) {
         for (Account newAccount : newAccountList) {
             // Verify if checkbox is marked to clone Billing to Shipping Address
-            if (newAccount.Match_Billing_Address__c  == True) {
-                AccountTriggerHelper.CloneBillingAddToShippingAdd(newAccount);
+            if (newAccount.Match_Billing_Address__c) {
+                AccountTriggerHelper.assignBillingAddressToShippingAddress(newAccount);
             }
         }
     }
