@@ -8,6 +8,14 @@ public class AccountTriggerHelper {
 
         account.phone = String.format('({0}) {1}-{2}', new List<Object>{areaCode, firstPart, secondPart});
 
-        
+    }
+
+    public static void CloneBillingAddToShippingAdd(Account account) {
+        account.ShippingStreet = account.BillingStreet;
+        account.ShippingCity = account.BillingCity;
+        account.ShippingState = account.BillingState;
+        account.ShippingCountry = account.BillingCountry;
+        account.ShippingPostalCode = account.BillingPostalCode;
+
     }
 }
