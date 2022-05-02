@@ -6,4 +6,12 @@ public class Tea {
         teaTypes.add('Black');
         System.debug(teaTypes);
     }
+
+    public static void orderTeaMap() {
+        Map<String, String> teaTypes = new Map<String,String>();
+        teaTypes.put('Black','Earthy');
+        teaTypes.put('Herbal','Sweet');
+        teaTypes.put('White','Sweet');
+        System.debug(teaTypes);
+    }
 }
