@@ -28,7 +28,7 @@
               <apex:facet name="header">
 
               </apex:facet>
-              <a href="_" onclick="deleteContact({!index});return false;">Deletar</a>
+              <a href="" onclick="deleteContact({!index});return false;">Deletar</a>
               <apex:variable var="index" value="{!index + 1}" />
             </apex:column>
             <apex:column>
