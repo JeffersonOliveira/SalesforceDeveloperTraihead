@@ -1,0 +1,37 @@
+<apex:page id="AccountPage" sidebar="false" showHeader="true" docType="html-5.0" standardController="Account" extensions="AccountControllerExtension">
+  <apex:form id="accountForm">
+    <apex:pageBlock mode="edit">
+      <apex:pageBlockButtons location="top">
+        <apex:commandButton value="Salvar" action="{!save}" />
+      </apex:pageBlockButtons>
+      <apex:pageBlockSection title="Informações de Conta" columns="2">
+        <apex:inputField value="{!Account.Name}" />
+        <apex:inputField value="{!Account.Site}" />
+        <apex:inputField value="{!Account.Phone}" />
+      </apex:pageBlockSection>
+      <apex:pageBlockSection title="Informações de Contato" columns="1">
+        <apex:pageBlockSectionItem>
+          <apex:commandButton value="Adicionar Contato" action="{!addContact}" />
+        </apex:pageBlockSectionItem>
+        <apex:pageBlockSectionItem>
+          <apex:pageBlockTable value="{!listContact}" var="contact">
+            <!-- Como se fosse um foreach -->
+            <apex:column>
+              <apex:facet name="header">Primeiro Nome</apex:facet>
+              <apex:inputField value="{!contact.FirstName}" />
+            </apex:column>
+            <apex:column>
+              <apex:facet name="header">Último Nome</apex:facet>
+              <apex:inputField value="{!contact.LastName}" />
+            </apex:column>
+            <apex:column>
+              <apex:facet name="header">Email</apex:facet>
+              <apex:inputField value="{!contact.Email}" />
+            </apex:column>
+          </apex:pageBlockTable>
+        </apex:pageBlockSectionItem>
+      </apex:pageBlockSection>
+    </apex:pageBlock>
+  </apex:form>
+
+</apex:page>
