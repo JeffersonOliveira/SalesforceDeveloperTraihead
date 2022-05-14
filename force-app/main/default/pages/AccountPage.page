@@ -1,31 +1,52 @@
 <apex:page id="AccountPage" sidebar="false" showHeader="true" docType="html-5.0" standardController="Account" extensions="AccountControllerExtension">
   <apex:form id="accountForm">
+    <apex:actionFunction name="addContact" action="{!addContact}" reRender="contactInformation" immediate="true" />
+    <apex:actionFunction name="deleteContact" action="{!deleteContact}" reRender="contactInformation" immediate="true">
+      <apex:param name="index" value="" />
+      <!-- Usado para pegar qual é o indice do contato na extensions controller -->
+    </apex:actionFunction>
     <apex:pageBlock mode="edit">
       <apex:pageBlockButtons location="top">
-        <apex:commandButton value="Salvar" action="{!save}" />
+        <apex:commandButton value="Salvar" action="{!saveAccount}" />
       </apex:pageBlockButtons>
       <apex:pageBlockSection title="Informações de Conta" columns="2">
-        <apex:inputField value="{!Account.Name}" />
-        <apex:inputField value="{!Account.Site}" />
-        <apex:inputField value="{!Account.Phone}" />
+        <apex:inputField value="{!account.Name}" />
+        <apex:inputField value="{!account.Site}" />
+        <apex:inputField value="{!account.Phone}" />
       </apex:pageBlockSection>
-      <apex:pageBlockSection title="Informações de Contato" columns="1">
+      <apex:pageBlockSection title="Informações de Contato" columns="1" id="contactInformation">
         <apex:pageBlockSectionItem>
-          <apex:commandButton value="Adicionar Contato" action="{!addContact}" />
+          <button type="button" onclick="addContact();"> Adicionar Contato </button>
+          <!-- <apex:commandButton value="Adicionar Contato" action="{!addContact}" /> -->
         </apex:pageBlockSectionItem>
+        <apex:variable var="index" value="{!0}" />
         <apex:pageBlockSectionItem>
+
           <apex:pageBlockTable value="{!listContact}" var="contact">
             <!-- Como se fosse um foreach -->
             <apex:column>
-              <apex:facet name="header">Primeiro Nome</apex:facet>
+              <apex:facet name="header">
+
+              </apex:facet>
+              <a href="_" onclick="deleteContact({!index});return false;">Deletar</a>
+              <apex:variable var="index" value="{!index + 1}" />
+            </apex:column>
+            <apex:column>
+              <apex:facet name="header">
+                Primeiro Nome
+              </apex:facet>
               <apex:inputField value="{!contact.FirstName}" />
             </apex:column>
             <apex:column>
-              <apex:facet name="header">Último Nome</apex:facet>
+              <apex:facet name="header">
+                Último Nome
+              </apex:facet>
               <apex:inputField value="{!contact.LastName}" />
             </apex:column>
             <apex:column>
-              <apex:facet name="header">Email</apex:facet>
+              <apex:facet name="header">
+                Email
+              </apex:facet>
               <apex:inputField value="{!contact.Email}" />
             </apex:column>
           </apex:pageBlockTable>
