@@ -4,8 +4,12 @@ public class AccountControllerExtension {
     public Account account {set;get;}
 
     public AccountControllerExtension(ApexPages.StandardController standardController) {
+        this.account = standardController.getRecord() == null ? new Account() : (Account) standardController.getRecord();
         this.listContact = new List<Contact>();
-        this.account = new Account();
+
+        if (this.account.Id <> null) {
+            this.listContact = [SELECT Id, FirstName, LastName, Email FROM Contact Where AccountId =:this.account.id];
+        }
     }
 
     public PageReference addContact() {
@@ -21,10 +25,10 @@ public class AccountControllerExtension {
 
     public PageReference saveAccount() {
         upsert account;
-        for (Contact contact : listContact) {
+        for (Contact contact : this.listContact) {
             contact.accountId = account.Id;
         }
-        insert listContact;
+        upsert this.listContact;
 
         ApexPages.StandardController controller = new ApexPages.StandardController(account);
         return controller.view();

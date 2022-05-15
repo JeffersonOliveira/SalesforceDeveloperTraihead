@@ -5,31 +5,45 @@
       <apex:pageBlockButtons location="top">
         <apex:commandButton value="Nova Conta" action="{!URLFOR($Action.Account.New)}" />
       </apex:pageBlockButtons>
-      <apex:pageBlockTable value="{!accounts}" var="account">
+      <apex:selectList value="{!filterId}" size="1">
+        <apex:selectOptions value="{!listViewOptions}" />
+        <apex:actionSupport event="onchange" reRender="listForm" />
+      </apex:selectList>
+      <apex:pageBlockTable value="{!accounts}" var="account" rows="{!PageSize}">
+        <apex:column>
+          <apex:facet name="header"> </apex:facet>
+          <apex:commandLink value="Edit" action="{!URLFOR($Action.Account.Edit,account.Id)}" />
+        </apex:column>
         <apex:column>
           <apex:facet name="header"> New Account</apex:facet>
           <apex:outputLink value="/{!account.id}">{!account.Name}</apex:outputLink>
-          <!-- Direciona para a página de detalhe quando você clica sobre o link -->
+          <!-- Direciona p/ página de detalhe qndo clicado sobre link -->
         </apex:column>
         <apex:column value="{!account.Phone}" />
-        <apex:column value="{!account.Website}" />
+        <apex:column value="{!account.Site}" />
       </apex:pageBlockTable>
+      <apex:outputPanel layout="block" style="display:flex; flex-direction:row; justify-content:space-between">
+        <div>
+          {!PageNumber} of {! CEILING(ResultSize / PageSize)}
+        </div>
+        <div>
+          <apex:commandButton action="{!First}" value="<< First" />
+          <apex:commandButton action="{!Previous}" value="< Previous" />
+          <apex:commandButton action="{!Next}" value="Next >" />
+          <apex:commandButton action="{!Last}" value="Last >>" />
+        </div>
+        <div>
+          <apex:selectList value="{!PageSize}" size="1">
+            <apex:selectOption itemValue="5" itemLabel="5" />
+            <apex:selectOption itemValue="10" itemLabel="10" />
+            <apex:selectOption itemValue="15" itemLabel="15" />
+            <apex:selectOption itemValue="20" itemLabel="20" />
+            <apex:selectOption itemValue="100" itemLabel="100" />
+            <apex:actionSupport event="onchange" reRender="listForm" />
+          </apex:selectList>
+        </div>
+      </apex:outputPanel>
     </apex:pageBlock>
   </apex:form>
 
 </apex:page>
-
-<!-- </apex:pageBlockSectionItem>
-<apex:variable var="index" value="{!0}" />
-<apex:pageBlockSectionItem> -->
-
-<!--
-page
-  form 
-    pageBlock
-      pageBlockButtons
-        commandButton/>
-      pageBlockTable
-        column
-          facet header Name
-          ouputlink // Link que aponta para que página seremos redirecionados. -->
