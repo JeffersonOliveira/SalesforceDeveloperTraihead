@@ -23,9 +23,9 @@
     <section>
       <h1>Contact Information</h1>
       <ul>
-        <apex:repeat value="{!contacts}" var="contact">
+        <apex:repeat value="{!contactsInformation}" var="contactInfo">
           <li>
-            Name: {!contact.FirstName} {!contact.LastName} Email: {!contact.Email}
+            {!contactInfo}
           </li>
         </apex:repeat>
       </ul>
