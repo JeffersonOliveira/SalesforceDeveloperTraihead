@@ -1,0 +1,69 @@
+<apex:page id="AccountPDF" renderAs="pdf" sidebar="false" showHeader="false" docType="html-5.0" applyBodyTag="false" applyHtmlTag="false"
+  controller="AccountPDFController">
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PDF</title>
+    <style>
+      ul {
+        list-style: none;
+
+      }
+    </style>
+  </head>
+
+  <body>
+    <section>
+      <h1>Account Information</h1>
+      Name: {!currentAccount.Name} Phone: {!currentAccount.Phone} Site: {!currentAccount.Site}
+    </section>
+    <section>
+      <h1>Contact Information</h1>
+      <ul>
+        <apex:repeat value="{!contacts}" var="contact">
+          <li>
+            Name: {!contact.FirstName} {!contact.LastName} Email: {!contact.Email}
+          </li>
+        </apex:repeat>
+      </ul>
+    </section>
+    <section>
+      <h1>Terms and Conditions</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer malesuada vel enim nec convallis. Morbi lobortis mauris
+        dui, in accumsan sapien pharetra malesuada. Nam auctor efficitur consectetur. Praesent dignissim, nisl sit amet mattis
+        cursus, magna felis condimentum orci, et mollis ante odio a lacus. Vivamus pulvinar tempus maximus. Sed pharetra
+        luctus sem. Pellentesque in eros vitae mi porta accumsan. Nulla id orci ac purus mattis interdum mollis in sapien.
+        Pellentesque feugiat lectus nec justo gravida volutpat. Nam nisi est, vehicula sit amet pulvinar in, rutrum at sapien.
+        Sed malesuada pellentesque enim eget ultrices. Donec tempus ipsum id eleifend sollicitudin. Nam mauris lectus, rutrum
+        in erat vitae, consectetur maximus sapien. In mattis ex non ligula aliquam elementum. Curabitur non mi aliquet, rutrum
+        sem ac, lobortis nisl. Morbi dignissim commodo tortor id feugiat. Integer tincidunt arcu ut velit luctus lacinia.
+        Proin nec molestie mi. Suspendisse sed nunc vel tortor laoreet pulvinar nec sit amet turpis. Nulla augue dolor, interdum
+        quis odio non, volutpat ornare lectus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Nullam eleifend
+        urna vehicula purus suscipit, non auctor quam tincidunt. Nunc interdum faucibus libero sed molestie. Vestibulum porttitor
+        eu ex ac placerat. Nullam blandit interdum finibus. Donec cursus porttitor bibendum. Donec cursus fermentum tellus,
+        nec hendrerit massa malesuada et. Morbi ante libero, scelerisque et sodales quis, euismod aliquet sem. Sed congue
+        finibus blandit. Quisque nisi orci, aliquam nec rhoncus ac, sodales eu elit. Cras venenatis est nec sollicitudin
+        tempor. Curabitur euismod sem id ante tristique, ut maximus lorem consequat. Pellentesque lacinia purus vitae nibh
+        viverra ullamcorper. Etiam blandit molestie fermentum. In et tristique purus. Fusce maximus urna vitae diam sagittis
+        rutrum. Aliquam erat volutpat. Nam eleifend, dolor a malesuada aliquet, odio nisl sodales mi, in vestibulum nibh
+        tortor in magna. Ut eu ullamcorper eros. Donec pretium dui nibh, sed volutpat nunc congue eu. Maecenas molestie quam
+        et rhoncus aliquam. Nulla vitae ligula et ex tincidunt eleifend ac id sem. Quisque congue, est et lacinia ultrices,
+        risus augue sagittis ipsum, eleifend facilisis nulla diam ac felis. Phasellus non consequat mauris. Phasellus pretium
+        velit magna, vitae hendrerit erat auctor a. Curabitur rhoncus diam quis commodo tempus. Aliquam ultrices fringilla
+        eros, vitae convallis erat fringilla vel. Proin lacinia blandit convallis. In arcu libero, accumsan ut pulvinar faucibus,
+        efficitur at arcu. Maecenas porta rhoncus odio quis blandit. In non felis at lectus blandit pellentesque quis a diam.
+        Fusce eu nisl molestie, tristique erat at, posuere sem. Nulla facilisis ultrices eros id molestie. Aenean vel mi
+        hendrerit, tincidunt ex ut, ullamcorper urna. Nam ornare et dui in blandit. Nam convallis velit vitae tincidunt iaculis.
+        Proin ac ante pellentesque felis porta hendrerit. Ut blandit metus eu ipsum mollis, ut scelerisque felis varius.
+        Sed ac suscipit diam, vel feugiat velit. Proin varius pulvinar gravida. Sed at scelerisque tortor.
+      </p>
+    </section>
+
+  </body>
+
+  </html>
+</apex:page>
