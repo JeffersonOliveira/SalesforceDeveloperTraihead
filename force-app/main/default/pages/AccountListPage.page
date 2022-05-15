@@ -1,0 +1,35 @@
+<apex:page id="AccountPage" sidebar="false" showHeader="true" docType="html-5.0" standardController="Account" recordSetVar="accounts">
+
+  <apex:form id="listForm">
+    <apex:pageBlock title="Account List">
+      <apex:pageBlockButtons location="top">
+        <apex:commandButton value="Nova Conta" action="{!URLFOR($Action.Account.New)}" />
+      </apex:pageBlockButtons>
+      <apex:pageBlockTable value="{!accounts}" var="account">
+        <apex:column>
+          <apex:facet name="header"> New Account</apex:facet>
+          <apex:outputLink value="/{!account.id}">{!account.Name}</apex:outputLink>
+          <!-- Direciona para a página de detalhe quando você clica sobre o link -->
+        </apex:column>
+        <apex:column value="{!account.Phone}" />
+        <apex:column value="{!account.Website}" />
+      </apex:pageBlockTable>
+    </apex:pageBlock>
+  </apex:form>
+
+</apex:page>
+
+<!-- </apex:pageBlockSectionItem>
+<apex:variable var="index" value="{!0}" />
+<apex:pageBlockSectionItem> -->
+
+<!--
+page
+  form 
+    pageBlock
+      pageBlockButtons
+        commandButton/>
+      pageBlockTable
+        column
+          facet header Name
+          ouputlink // Link que aponta para que página seremos redirecionados. -->
