@@ -17,7 +17,7 @@
         </apex:column>
         <apex:column>
           <apex:facet name="header"> New Account</apex:facet>
-          <apex:outputLink value="/{!account.id}">{!account.Name}</apex:outputLink>
+          <apex:outputLink value="/apex/ViewAccountDetail?Id={!account.id}">{!account.Name}</apex:outputLink>
           <!-- Direciona p/ página de detalhe qndo clicado sobre link -->
         </apex:column>
         <apex:column value="{!account.Phone}" />
