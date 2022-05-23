@@ -1,4 +1,5 @@
-<apex:page id="AccountPage" sidebar="false" showHeader="true" docType="html-5.0" standardController="Account" extensions="AccountControllerExtension">
+<apex:page id="AccountPage" lightningStylesheets="true" sidebar="false" showHeader="true" docType="html-5.0" standardController="Account"
+  extensions="AccountControllerExtension">
   <apex:form id="accountForm">
 
     <apex:pageBlock mode="edit">
