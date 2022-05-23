@@ -10,7 +10,8 @@
         <apex:inputField value="{!account.Site}" />
         <apex:inputField value="{!account.Phone}" />
       </apex:pageBlockSection>
-      <c:ContactList list="{!listContact}" newContactAction="{!addContact}" deleteContactAction="{!deleteContact}" />
+      <c:ContactList isEditMode="true" list="{!listContact}" newContactAction="{!addContact}" deleteContactAction="{!deleteContact}"
+      />
     </apex:pageBlock>
   </apex:form>
 </apex:page>
