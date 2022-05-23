@@ -55,6 +55,43 @@ public with sharing class TiposDeDados {
 
         Date d = Date.today();
         System.debug(d); //|USER_DEBUG|[2]|DEBUG|2022-04-29 00:00:00   // Ele imprime como data e hora, mas consideramos somente a data, pois a hora vira zerada.
+        //Date d = Date.today().toStartOfMonth(); System.debug(d);
+        
+        //formatando uma 
+        Date dA = Date.today();
+        System.debug(dA);
+        String data = Datetime.newInstance(dA.year(), dA.month(), dA.day()).format('yyy-MM-dd');
+        System.debug( data );
+
+
+        Date dA = Date.today();
+        String data = Datetime.newInstance(dA.year(), dA.month(), dA.day()).format('MM-yy');
+        System.debug( data );
+
+        Datetime dA = Datetime.today();
+        String data = Datetime.newInstance(dA.year(), dA.month(), dA.day()).format('MM-yy');
+        System.debug( data );
+
+        //-------------
+        List<Datetime> listData = New List<Datetime>();
+        listData.add(System.now());
+        listData.add(System.now().addDays(2));
+        System.debug(listData);
+
+        List<String> listDateFormated = Datetime.newInstance(listData.year(), listData.month(), listData.day()).format('MM-dd');
+
+        //String data = Datetime.newInstance(dA.year(), dA.month(), dA.day()).format('MM-dd');
+        System.debug( listDateFormated );
+                
+        Map<String, String> myMap = new Map<String, String>();
+        myMap.put('RecurrenceStartDate',data); 
+        System.debug(myMap);
+
+        
+        System.debug('Current date: ->>> ' + Date.today().format());
+        data d2 = Date.today().format();
+        System.debug('Current date: ->>> ' + Date.today().format() instanceof Date);
+
         Date d2 = d.addDays(7); // Para atualizar a data na variável, precisamos atribuir pq o método addDays retorna a nova data.
         System.debug(d2);
         Date d3 = d.addMonths(7);
@@ -105,6 +142,27 @@ public with sharing class TiposDeDados {
 
         Id aId = acc.Id; // Aqui também podemos utlizar String, mas é recomendável que se utilize sempre o Tipo Id porque ele ainda faz uma validação dos dados que estão sendo utilizados.
         System.debug(aId);
+
+
+          
+  Date d = Date.newInstance(2022, 5, 1);
+  Datetime dt = Datetime.newInstance(2022, 5, 1, 0, 0, 0);
+  System.debug('Date: '+d +' Datatime: '+dt);
+    String data = Datetime.newInstance(d.year(), d.month(), d.day()).format('MM/yy');
+    String datatime = Datetime.newInstance(dt.year(), dt.month(), dt.day()).format('MM/yy');
+  System.debug('Date: '+ data + ' Datatime: '+ datatime );
+
+
+  Datetime dt = Datetime.newInstance(2022, 5, 1, 0, 0, 0);
+System.debug(dt);
+Timezone tz = UserInfo.getTimeZone();
+System.debug(tz);
+System.debug(tz.getOffset(dt));
+Integer milisecound = (Integer) tz.getOffset(dt);
+Integer hour = milisecound /(1000*60*60);
+System.debug(hour);
+Datetime dta = dt.addHours(-hour);
+System.debug(dta);
 
     }
 
