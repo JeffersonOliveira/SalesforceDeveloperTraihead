@@ -17,11 +17,13 @@
 
   <body>
     <section>
-      <h1>Account Information</h1>
-      Name: {!currentAccount.Name} Phone: {!currentAccount.Phone} Site: {!currentAccount.Site}
+      <h1>Documento Genérico para substituir o doucmento de Nota Fiscal</h1>
+
+      <h2>Informação de Conta</h2>
+      Nome: {!currentAccount.Name} Telefone: {!currentAccount.Phone} Site: {!currentAccount.Site}
     </section>
     <section>
-      <h1>Contact Information</h1>
+      <h2>Informação de Contato Information</h2>
       <ul>
         <apex:repeat value="{!contactsInformation}" var="contactInfo">
           <li>
@@ -31,7 +33,7 @@
       </ul>
     </section>
     <section>
-      <h1>Terms and Conditions</h1>
+      <h1>Termos e Condições</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer malesuada vel enim nec convallis. Morbi lobortis mauris
         dui, in accumsan sapien pharetra malesuada. Nam auctor efficitur consectetur. Praesent dignissim, nisl sit amet mattis
