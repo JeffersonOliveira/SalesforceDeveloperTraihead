@@ -1,0 +1,34 @@
+h1 {
+    color: #000;
+}
+.logo {
+  color: blue;
+  font-size: 40px;
+  font-style: bold;
+}
+
+.logo span {
+  font-size: 40px;
+  color: orange;
+}
+
+.span {
+  font-size: 40px;
+  color: orange;
+}
+
+.myButton:hover {
+  background: #1798c1;
+  color: black;
+}
+
+
+.sample {
+  font-weight: bold;
+}
+
+.title__ {
+  text-align: center;
+  text-decoration: underline;
+  font-weight: bold;
+}

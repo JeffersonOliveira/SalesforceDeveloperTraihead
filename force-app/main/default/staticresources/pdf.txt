@@ -1,0 +1,17 @@
+h1 {
+    color: #000;
+}
+.logo {
+  color: blue;
+  font-size: 15px;
+  font-style: bold;
+}
+
+.logo span {
+  color: orange;
+}
+
+.myButton:hover {
+  background: #1798c1;
+  color: black;
+}
