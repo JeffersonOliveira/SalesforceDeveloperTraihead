@@ -1,0 +1,20 @@
+<apex:page id="AccountPage" docType="html-5.0" sidebar="false" showHeader="true" standardController="Account" extensions="AccountControllerExtension"
+  renderAs="pdf">
+
+  <apex:stylesheet value="{!URLFOR($Resource.Styles,'pdf.css')}" />
+
+  <h1>Welcome to Universal Samples!</h1>
+  <p> Thank you,
+    <b>
+      <apex:outputText value=" {!Account.Name}" />
+    </b>, for becoming a new account with Universal Samples.</p>
+
+  <apex:outputText value="The time right now is: {0,date,yyyy.MM.dd G 'at' HH:mm:ss z}">
+    <apex:param value="{!NOW() }" />
+  </apex:outputText>
+
+  <apex:outputText value="A data de emissão da nota foi: {0,date,dd/MM/yyyy G 'at' HH:mm:ss}">
+    <apex:param value="{!NOW() }" />
+  </apex:outputText>
+
+</apex:page>
