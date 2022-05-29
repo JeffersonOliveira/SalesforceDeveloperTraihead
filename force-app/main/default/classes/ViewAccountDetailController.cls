@@ -1,5 +1,6 @@
 public with sharing class ViewAccountDetailController {
 
+    @TestVisible
     Id accountId;
     public List<Contact> listContact {get;set;}
     public Boolean isEditMode {get;set;}
@@ -12,11 +13,6 @@ public with sharing class ViewAccountDetailController {
 
     public List<Contact> getContacts(){
         return [SELECT Id, FirstName, LastName, Email FROM Contact WHERE AccountId =:this.accountId];
-    }
-
-    public PageReference addContact() {
-        this.listContact.add(new Contact());
-        return null; // O null faz com que ele atualize a mesma página. Poderíamos passar uma outra página( outra PageReference) e assim iríamos para outra página.
     }
 
     public PageReference newContact() {
