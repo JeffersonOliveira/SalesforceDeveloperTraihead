@@ -2,7 +2,7 @@
   <apex:form>
     <apex:pageBlock mode="maindetail">
       <apex:detail title="true" subject="{!Account.Id}" />
-      <c:ContactList isDetail="true" isEditMode="{!isEditMode}" list="{!listContact}" newContactAction="{!addContact}" deleteContactAction="{!deleteContact}"
+      <c:ContactList isDetail="true" isEditMode="{!isEditMode}" list="{!listContact}" newContactAction="{!newContact}" deleteContactAction="{!deleteContact}"
         editContactAction="{!editContacts}" saveContactAction="{!saveContacts}" />
     </apex:pageBlock>
 
