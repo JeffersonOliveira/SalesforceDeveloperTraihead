@@ -33,7 +33,7 @@ public with sharing class ConceitosApex {
         if (!isPizza) {
             throw new PizzaException('Isso não é uma pizza');
         } else {
-            ((Pizza)pizza).prepararPizza();
+            ((Pizza)pizza).preparaPizza();
         }
     }
 

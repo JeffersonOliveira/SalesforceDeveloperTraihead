@@ -2,7 +2,7 @@
 public class PizzaTest {
     
     @IsTest
-    public static void PizzaQualuer() {
+    public static void PizzaQualquer() {
         Portuguesa p = new Portuguesa();
         p.preparaPizza();
 

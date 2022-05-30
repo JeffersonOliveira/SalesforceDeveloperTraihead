@@ -2,14 +2,14 @@
 public  class GarrafaTest {
 
     @IsTest
-    public static GarrafaSimples() {
+    public static void GarrafaSimples() {
         GarrafaSimples gs = new GarrafaSimples();
         gs.abrirGarrfa();
 
     }
 
     @IsTest
-    public static GarrafaPower() {
+    public static void GarrafaPower() {
         GarrafaPower gp = new GarrafaPower();
         gp.abrirGarrfa();
         
