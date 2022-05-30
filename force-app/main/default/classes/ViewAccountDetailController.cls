@@ -12,7 +12,7 @@ public with sharing class ViewAccountDetailController {
     }
 
     public List<Contact> getContacts(){
-        return [SELECT Id, FirstName, LastName, Email FROM Contact WHERE AccountId =:this.accountId];
+        return [SELECT Id, FirstName, LastName, Email FROM Contact WHERE AccountId =:this.accountId WITH SECURITY_ENFORCED];
     }
 
     public PageReference newContact() {

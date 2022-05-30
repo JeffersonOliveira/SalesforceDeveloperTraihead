@@ -30,10 +30,18 @@ public class ViewAccountDetailControllerTest {
     @IsTest
     static void testAddNewContact(){
 
+        Profile profile = [SELECT Id FROM Profile WHERE Name =: 'Test System Administrator'];
+
+        User user = new User(Alias='testUsr',email='testuser@test.com',EmailEncodingKey='UTF-8', LastName='Test'
+                            , LanguageLocaleKey='pt_BR', LocaleSidKey='pt_BR', ProfileId=profile.Id, TimeZoneSidKey='America/Sao_Paulo'
+                            , UserName='viewAccountDetail@user.test');
+
+
         Account acc = [SELECT Id FROM Account Limit 1];
         ApexPages.StandardController standardController = new ApexPages.StandardController(acc);
         
         Test.startTest();
+        System.runAs(user){
             ViewAccountDetailController controller = new ViewAccountDetailController(standardController);
             controller.editContacts();
             System.assert(controller.isEditMode,'To add new contact, edit mode must be true');
@@ -46,7 +54,7 @@ public class ViewAccountDetailControllerTest {
 
             List<Contact> newContactList = [SELECT Id FROM Contact WHERE AccountId =: acc.id and Email = 'new_contact@test.com'];
             System.assert(!newContactList.isEmpty());
-
+        }
         Test.stopTest();
         
     }
