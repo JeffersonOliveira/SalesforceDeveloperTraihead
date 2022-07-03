@@ -1,25 +1,18 @@
 public with sharing class ContactUtility {
     public static void viewContacts() {
         List<Contact> listOfContacts = [SELECT FirstName, LastName FROM Contact LIMIT 6];
+
+        List<String> listOfnomeCompleto = new List<String>();
         for (Contact con : listOfContacts) {
             String fullName = 'Primeiro Nome: '+con.FirstName+', Último Nome: '+con.LastName;
+            listOfnomeCompleto.add(fullName);
         }
-
-        // Meus testes e em cima da atividade
-        /* System.debug('Lista com dados recuperados via SOQL:::'+listOfContacts); */
-        List<String> listOfnomeCompleto = new List<String>();
-        for(Contact con : listOfContacts) {
-            listOfnomeCompleto.add(con.FirstName+' '+con.LastName);
-        }
+        //Impressão de debugs:
         System.debug(':::::Listagem Nomes Completos::: '+listOfnomeCompleto);
-
-
-        if(listOfContacts.size() > 0){
-            Integer i=0;
-            for(Contact con : listOfContacts) {
-                System.debug(':::::Posição['+i+']: '+ listOfnomeCompleto[i] );
-                i++;
-            }
+        Integer i=0;
+        for (Integer i = 0; i < listOfnomeCompleto.size(); i++) {
+            System.debug(':::::Posição['+i+']: '+ listOfnomeCompleto[i] );  
         }
+
     }
 }
